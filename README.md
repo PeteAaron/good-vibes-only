@@ -33,7 +33,7 @@ pnpm lint          # biome check
 pnpm test          # vitest unit tests
 pnpm test:e2e      # playwright (after pnpm exec playwright install chromium)
 pnpm build         # production build
-pnpm check         # lint + typecheck + test (the local CI)
+pnpm check         # lint + typecheck + test (run before every commit)
 ```
 
 Full first-time setup walkthrough: [SETUP.md](./SETUP.md).
@@ -63,7 +63,6 @@ The default install ships **Tailwind CSS only** — no component library locked 
 - Zod (runtime validation)
 - pino (structured logging)
 - Vitest (unit) · Playwright (e2e)
-- GitHub Actions CI
 
 ## License
 

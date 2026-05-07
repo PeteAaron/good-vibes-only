@@ -33,7 +33,7 @@ recipes/     Opt-in add-ons (auth, db, payments, components, etc).
 - **No new dependencies** without justifying them in the PR description. Three lines of code beats a dependency.
 - **No console.log** in committed code (use `logger`). Tests are exempt.
 - **No premature abstractions.** Don't extract a helper for a single caller. Don't add a generic for a hypothetical future use.
-- **No husky / pre-commit hooks.** This repo enforces quality in CI only.
+- **No husky / pre-commit hooks. No CI workflows either.** Run `pnpm check` yourself before committing — the gate is your discipline, not a YAML file.
 
 ## File-level conventions
 

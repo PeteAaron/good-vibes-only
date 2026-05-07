@@ -32,7 +32,7 @@ You are working in `good-vibes-only`, a Next.js 15 + TypeScript starter that dou
 - No new dependencies without justification in the PR description.
 - No `console.log` in committed code — use `logger`.
 - No premature abstractions for hypothetical callers.
-- No husky / pre-commit hooks. CI is the gate.
+- No husky, no pre-commit hooks, no CI workflows. Run `pnpm check` yourself before committing.
 
 ## Setup flow
 

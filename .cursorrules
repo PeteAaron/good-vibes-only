@@ -1,0 +1,48 @@
+# .cursorrules — mirror of CLAUDE.md for Cursor users.
+# The canonical source is CLAUDE.md. If the two drift, CLAUDE.md wins.
+
+You are working in `good-vibes-only`, a Next.js 15 + TypeScript starter that doubles as a guide for AI-assisted development.
+
+## Project shape
+
+- `app/` — Next.js App Router pages, layouts, API routes, server actions
+- `lib/` — Shared modules: env.ts, logger.ts, db.ts. Server-only by default.
+- `tests/unit/` — Vitest specs.
+- `tests/e2e/` — Playwright specs.
+- `docs/` — The vibe-coding guide.
+- `recipes/` — Opt-in add-ons (auth, db, payments, components).
+
+## Always
+
+- Read the target file and its neighbors before editing.
+- Plan before coding anything beyond a one-line fix.
+- Validate every external input with Zod (`safeParse`, branch on success).
+- Read env via `lib/env.ts` — never `process.env` in app code.
+- Default to server components. Use `"use client"` only when you need it.
+- Use `import type` for types.
+- Mark server-only modules with `import "server-only";` at the top.
+- Log with structure: `logger.info({ userId }, "loaded user")`.
+- Run `pnpm check` before claiming work done.
+
+## Never
+
+- No `any`. Use `unknown` and narrow.
+- No `// @ts-ignore` without an inline reason.
+- No `process.env.X` outside `lib/env.ts`.
+- No new dependencies without justification in the PR description.
+- No `console.log` in committed code — use `logger`.
+- No premature abstractions for hypothetical callers.
+- No husky / pre-commit hooks. CI is the gate.
+
+## Setup flow
+
+If the user asks to "run setup" or "pick a component library":
+
+1. Read `recipes/components/README.md`.
+2. Ask the user to pick one (default Tailwind, shadcn/ui, MUI, Chakra, Mantine).
+3. Apply the matching recipe in `recipes/components/<choice>.md`.
+4. Commit with `chore: set up <library>`.
+
+## Workflow
+
+For any non-trivial change: state plan → implement small steps → add a test → `pnpm check` → update `docs/` if a convention changed.
